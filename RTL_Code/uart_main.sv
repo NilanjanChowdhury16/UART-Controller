@@ -36,9 +36,7 @@ module uart_main #(parameter ClkFreq_t = 10_000_000, ClkFreq_r = 10_000_000, Bau
 		output reg [7:0] rx_output_data, //Output Data
 		output reg rx_output_data_valid //Output Data Valid
     );
-    
-    reg [3:0] count, state;
-    reg tx_clk, rx_clk;
+    wire tx_clk, rx_clk;
     
     //Clock Generator
     //wire tx_clk, rx_clk;
@@ -67,26 +65,7 @@ module uart_main #(parameter ClkFreq_t = 10_000_000, ClkFreq_r = 10_000_000, Bau
     	.rx_clk(rx_clk),
     	.rx_en(rx_en),
     	.rx_o_data(rx_output_data),
-    	.rx_o_data_valid(rx_output_data_valid),
-    	.count(count),
-    	.state(state)
-    );
-    
-    /*uart_rx recevier(
-    	.i_rx(input_data),
-    	.rx_clk(rx_clk),
-    	.rx_en(receiver_enable),
-    	.rx_o_data_valid(output_valid),
-    	.rx_o_data(output_data)
-    );
-    
-    baudgenerator 
-    	#(.ClkFreq_t(10_000_000), .ClkFreq_r(10_000_000), .BaudRate(115200))
-    	clockgenerator (
-    		.r_clk(rx_clk),
-    		.g_clk(clk),
-    		.rstn(rstn)
-    	);*/
-    
+    	.rx_o_data_valid(rx_output_data_valid)
+    ); 
     
 endmodule

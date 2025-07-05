@@ -27,14 +27,14 @@ module uart_rx(
 	input rx_clk, //Receiver Clock
 	input rx_en, //Enable Receiver
 	output reg [7:0] rx_o_data, //Output Data
-	output reg rx_o_data_valid, //Data Valid
-	output reg [3:0] count, state
+	output reg rx_o_data_valid //Data Valid
     );
     
     reg rx_done;
-    reg [2:0] next;
+    reg [2:0] next, state;
     reg [7:0] rx_data;
     reg parity, data_valid;
+    reg [3:0] count;
     
     
     
