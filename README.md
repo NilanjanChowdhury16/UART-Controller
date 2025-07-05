@@ -13,7 +13,7 @@
 * Receiver: Implements a SIPO shift register, performs parity and frame validation, and uses its own FSM: IDLE → DATA_START → DATA_IN → DATA_PARITY → DATA_STOP.
 
 ### 📶 High-Speed Communication
-* Operates at baud rates up to 921600, suitable for demanding serial interfaces.
+* Operates at baud rates up to 921600 with 100MHz clock, suitable for demanding serial interfaces.
 
 ### 💾 Memory-Efficient Design
 * Built using compact FSM logic and shift registers to minimize hardware and memory usage.
