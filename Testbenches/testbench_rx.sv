@@ -23,7 +23,7 @@
 module testbench_rx(
 
     );
-    /*
+    /* To test SIPO Individually
     //SIPO Testbench
     logic din, clk, en;
     logic [7:0] dout;
@@ -84,6 +84,7 @@ module testbench_rx(
     	receiver_enable = 1; 
     end
     
+    //For rx_clk with 10_000_000Hz clock and 115200mbits/s baud
     /*initial begin
     	input_data = 1; //IDLE State
     	#1405 input_data = 1;//Test Bit

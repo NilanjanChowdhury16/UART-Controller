@@ -27,9 +27,6 @@ module baudgenerator
     output logic 	r_clk,
     input  logic 	g_clk,
     input  logic 	enable
-    //output logic [31:0] B_t, B_r,
-    //output logic [31:0] r_count, t_count
-    
     );
     
     logic [7:0] r_count, t_count;

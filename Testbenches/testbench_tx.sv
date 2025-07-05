@@ -18,50 +18,7 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-
-
-/*module testbench_tx(
-
-    );
-    
-    logic [7:0] parallel_data;
-    logic data_valid, transmiter_ready, serial_data, tx_clk, transmitter_enable; 
-    logic clk;
-    logic [2:0] state;
-    
-    uart_tx transmitter(
-    					.tx_i_data(parallel_data),
-    					.tx_i_data_valid(data_valid),
-    					.tx_o_ready(transmiter_ready),
-    					.tx_o(serial_data),
-    					.tx_clk(tx_clk),
-    					.tx_en(transmitter_enable),
-    					.state(state)
-    					);
-    
-    baudgenerator #(.ClkFreq_t(1_000_000_000), .BaudRate(921600), .ClkFreq_r(1_000_000_000)) Clock (
-    				.t_clk(tx_clk),
-    				.g_clk(clk),
-    				.rstn(transmitter_enable)
-    				);
-    
-    initial begin
-    	clk = 0;
-    	forever #0.5 clk = !clk;
-    end
-    
-    initial begin
-    	transmitter_enable = 0;
-    	#7 transmitter_enable = 1;
-    	$monitor($time, "Clk = %0b Data = %0h, Data Valid = %0b, Serial Data = %0b\n",tx_clk, parallel_data, data_valid, serial_data);
-    	parallel_data = 8'hAB;
-    	#2 data_valid = 1;
-    end
-    
-    
-endmodule*/
-
-/*
+/* To test PISO Indivudually
 module testbench;
 	logic [7:0] din;
 	logic clk, rst, dout, load_shift;

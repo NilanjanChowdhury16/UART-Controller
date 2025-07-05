@@ -30,7 +30,6 @@ module uart_tx
     input tx_en, //Synchronous Active Low Reset
     output reg tx_o_ready, //Transmitter ready to accept byte to be transmitted
     output reg tx_o //Serial Data Output
-    //output logic [2:0] state
 );
     
     reg [2:0] state; 

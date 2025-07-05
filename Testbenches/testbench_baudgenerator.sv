@@ -23,18 +23,12 @@
 module testbench_baudgenerator;
 	logic t_clk, r_clk;
 	logic clk, rstn;
-	//logic [31:0] B_t, B_r;
-	//logic [31:0] r_count, t_count;
 	
 	baudgenerator #(.ClkFreq_t(10_000_000), .BaudRate(115200), .ClkFreq_r(10_000_000)) Baud(
 					.enable(rstn),
 					.g_clk(clk),
 					.t_clk(t_clk),
 					.r_clk(r_clk)
-					//.B_t(B_t),
-					//.B_r(B_r),
-					//.r_count(r_count),
-					//.t_count(t_count)
 					);
 	
 	initial begin

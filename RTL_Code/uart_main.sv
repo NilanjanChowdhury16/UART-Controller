@@ -36,10 +36,9 @@ module uart_main #(parameter ClkFreq_t = 10_000_000, ClkFreq_r = 10_000_000, Bau
 		output reg [7:0] rx_output_data, //Output Data
 		output reg rx_output_data_valid //Output Data Valid
     );
-    wire tx_clk, rx_clk;
     
     //Clock Generator
-    //wire tx_clk, rx_clk;
+    wire tx_clk, rx_clk;
     baudgenerator 
     	#(.ClkFreq_t(ClkFreq_t), .ClkFreq_r(ClkFreq_r), .BaudRate(BaudRate))
     	clockgenerator (
