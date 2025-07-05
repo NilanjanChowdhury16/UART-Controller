@@ -1,4 +1,5 @@
 🧠 Custom UART Controller in Verilog (RTL and Verification)
+
 🚀 This project implements a fully custom UART (Universal Asynchronous Receiver Transmitter) Controller using Verilog HDL, designed for high-speed, full-duplex serial communication with a focus on hardware and memory efficiency. It supports baud rates up to 921600 with a 100 MHz core clock, maintaining a communication error margin within ±2%.
 
 🔑 Key Implementation Details
