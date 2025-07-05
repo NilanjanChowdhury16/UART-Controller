@@ -31,13 +31,13 @@
 ### 🧮 Baud Pulse Calculation:
 * Calculates pulse timing based on the formula:
 
-····* Transmitter:
+····*Transmitter:
 
-········* `Baud Pulse Count = Core Clock Frequency / Desired Baud Rate`
+········*`Baud Pulse Count = Core Clock Frequency / Desired Baud Rate`
 
-····* Receiver:
+····*Receiver:
 
-········* `Baud Pulse Count = (Core Clock Frequency / Desired Baud Rate)/16`
+········*`Baud Pulse Count = (Core Clock Frequency / Desired Baud Rate)/16`
 
 ## 🔁 Counter Logic:
 * Begins counting core clock cycles when Enable is high.
