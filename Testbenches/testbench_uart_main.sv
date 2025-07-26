@@ -71,6 +71,7 @@ module testbench_uart_main(
 	initial begin
 	   #905 rx_en = !rx_en;
 	end
+endmodule
     
     //To test the receiver individually
     /*initial begin

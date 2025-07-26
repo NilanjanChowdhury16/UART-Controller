@@ -74,7 +74,7 @@ module uart_tx
     			next = tx_done ? RESET : DATA_STOP;
     		end
     		RESET : begin
-    			next = !transmit_data ? IDLE : RESET;
+    			next = IDLE;
     		end
     		default : begin
     			next = IDLE;
@@ -90,8 +90,8 @@ module uart_tx
     	end
     	else begin
     		case (state)
-    		
-    			//IDLE State: Drive serial output pin High and if the data is valid, load the 8 bit data into a register
+    			//IDLE State: Drive serial output pin High and if the data is valid, 
+    			//load the 8 bit data into a register
     			IDLE : begin
     				tx_o = 1'b1;
     				tx_o_ready = 1'b1;
@@ -101,10 +101,12 @@ module uart_tx
     				end
     			end
     			
-    			//DATA_START State: Send out a start bit (0) to indicate the start of data transmission
+    			//DATA_START State: Send out a start bit (0) to indicate the 
+    			//start of data transmission
     			DATA_START : begin
     				tx_o = 1'b0;
     				PISO_shift_load = 1'b0;
+    				tx_o_ready = 1'b0;
     			end
     			
     			//DATA_OUT State: Send the data
@@ -112,18 +114,22 @@ module uart_tx
     				PISO_shift_load = 1'b1;
     				tx_o = PISO_dout;
     				parity = ^transmit_data;
+    				tx_o_ready = 1'b0;
     			end
     			
     			//PARITY State: Send a parity bit
     			PARITY : begin
     				tx_o = parity;
     				count = 1'b0;
+    				tx_o_ready = 1'b0;
     			end
     			
-    			//DATA_STOP State: Send out a stop bit (1) to indicate the end of data transmission
+    			//DATA_STOP State: Send out a stop bit (1) to indicate the 
+    			//end of data transmission
     			DATA_STOP : begin
     				tx_o = 1'b1;
     				tx_done = 1'b1;
+    				tx_o_ready = 1'b0;
     			end
     			
     			//RESET State: Reset all the elements for a fresh new data
@@ -132,6 +138,7 @@ module uart_tx
     				transmit_data = 0;
     				PISO_din = 0;
     				tx_o = 1'b1;
+    				tx_o_ready = 1'b1;
     			end
     		endcase
     	end

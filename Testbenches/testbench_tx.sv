@@ -77,10 +77,9 @@ module testbench_tx;
 		#30 tx_en = 1'b1;
 		#20 din = 8'haa;
 		data_valid = 1'b1;
-		#10 din = 8'h19;
+		#50 din = 8'h19;
 		data_valid = !data_valid;
-		#150 data_valid = !data_valid;
-		
+		#110 data_valid = !data_valid;
 	end
 	
 	initial begin

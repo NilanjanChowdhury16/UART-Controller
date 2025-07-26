@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module testbench_rx(
+/*module testbench_rx(
 
     );
     /* To test SIPO Individually
@@ -54,15 +54,14 @@ module testbench_rx(
     	#30 $finish;
     end
     //End of SIPO Testbench
+endmodule
     */
     
-    
+module testbench_rx();
     //RX TestBench
-    logic input_data, clk, receiver_enable;
-    logic output_valid, enable, rx_clk, SIPO_en;
-    logic [7:0] output_data, SIPO_dout;
-    logic [3:0] count;
-    logic [2:0] state, SIPO_count;
+    logic input_data, receiver_enable;
+    logic output_valid, rx_clk;
+    logic [7:0] output_data;
     
     uart_rx recevier(
     	.i_rx(input_data),
@@ -79,9 +78,7 @@ module testbench_rx(
     
     initial begin
     	receiver_enable = 0;
-    	enable = 1'b0;
-    	#7 enable = 1'b1;
-    	receiver_enable = 1; 
+    	#7 receiver_enable = 1; 
     end
     
     //For rx_clk with 10_000_000Hz clock and 115200mbits/s baud
@@ -156,8 +153,4 @@ module testbench_rx(
     	#165 input_data = 0;//Start Bit
     	#50 $finish;
     end
-    
-    
 endmodule
-
-
